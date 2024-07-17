@@ -1,7 +1,12 @@
 'use client';
+
 import styled from '@emotion/styled';
 
 const Container = styled.div`
+  img {
+    display: block;
+    margin-top: 500px;
+  }
   img + img + img + img + img + img,
   img + img + img + img + img + img + img + img,
   img + img + img + img + img + img + img + img + img + img,
@@ -24,7 +29,6 @@ export default function ClientComponent() {
             loading="lazy"
             width={300}
             height={300}
-            style={{ display: 'block', marginTop: 500 }}
           />
         );
       })}
