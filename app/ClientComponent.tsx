@@ -1,6 +1,7 @@
 'use client';
 
 import styled from '@emotion/styled';
+import { useEffect, useState } from 'react';
 
 const Container = styled.div`
   img {
@@ -16,9 +17,18 @@ const Container = styled.div`
 `;
 
 export default function ClientComponent() {
+  const [numberOfImages, setNumberOfImages] = useState(6);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setNumberOfImages(18);
+    }, 10);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <Container>
-      {Array.from({ length: 20 }, (_, i) => {
+      {Array.from({ length: numberOfImages }, (_, i) => {
         const imgNum = i + 21;
         const imgName = `image_${imgNum}.${imgNum % 2 === 0 ? 'jpg' : 'png'}`;
         return (
