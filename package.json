@@ -10,6 +10,9 @@
     "test": "pnpm build && playwright test --ui"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",

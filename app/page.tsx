@@ -4,7 +4,7 @@ import ClientComponent from './ClientComponent';
 export default function Home() {
   return (
     <div>
-      {Array.from({ length: 40 }, (_, i) => {
+      {Array.from({ length: 20 }, (_, i) => {
         const imgNum = i + 1;
         const imgName = `image_${imgNum}.${imgNum % 2 === 0 ? 'jpg' : 'png'}`;
         return (
