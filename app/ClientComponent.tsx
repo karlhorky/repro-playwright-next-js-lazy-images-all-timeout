@@ -4,31 +4,22 @@ import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 
 const Container = styled.div`
-  img {
-    display: block;
-    margin-top: 500px;
-  }
-  img + img + img + img + img + img,
-  img + img + img + img + img + img + img + img,
-  img + img + img + img + img + img + img + img + img + img,
-  img + img + img + img + img + img + img + img + img + img + img + img {
-    display: none;
-  }
+  border: 1px solid red;
 `;
 
 export default function ClientComponent() {
-  const [numberOfImages, setNumberOfImages] = useState(6);
+  const [hiddenImageNumbers, setHiddenImageNumbers] = useState<number[]>([]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setNumberOfImages(18);
+      setHiddenImageNumbers([23, 29, 31, 37, 41]);
     }, 10);
     return () => clearTimeout(timeout);
   }, []);
 
   return (
     <Container>
-      {Array.from({ length: numberOfImages }, (_, i) => {
+      {Array.from({ length: 20 }, (_, i) => {
         const imgNum = i + 21;
         const imgName = `image_${imgNum}.${imgNum % 2 === 0 ? 'jpg' : 'png'}`;
         return (
@@ -39,6 +30,10 @@ export default function ClientComponent() {
             loading="lazy"
             width={300}
             height={300}
+            style={{
+              display: hiddenImageNumbers.includes(imgNum) ? 'none' : 'block',
+              marginTop: 500,
+            }}
           />
         );
       })}
