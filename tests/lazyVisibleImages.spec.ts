@@ -1,6 +1,7 @@
 import test, { expect } from '@playwright/test';
 
 test('scroll to lazy visible images and wait for loading', async ({ page }) => {
+  await page.goto('/');
   const lazyImages = await page.locator('img[loading="lazy"]:visible').all();
 
   for (const lazyImage of lazyImages) {
